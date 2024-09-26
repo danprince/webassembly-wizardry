@@ -4,6 +4,6 @@
   ;;
   ;; Hint: There's a hard way and an easy way.
   (func (export "hamming") (param $val i32) (result i32)
-    ;; SOLVE
+    (i32.popcnt (local.get $val))
   )
 )

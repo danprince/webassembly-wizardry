@@ -1252,35 +1252,35 @@ challenge("strstr", (wasm) => {
 });
 
 todo("bracket_matching", (wasm) => {
-  const matching = expectFunc(wasm.instance.exports.matching);
+  const _matching = expectFunc(wasm.instance.exports.matching);
   const memory = expectMemory(wasm.instance.exports.memory);
 
   /** @param {string} string */
-  const test = (string) => {
+  const matching = (string) => {
     setMemoryStringAscii(memory, string);
-    return matching();
+    return _matching();
   };
 
-  equal(test(""), 1);
-  equal(test("[]"), 1);
-  equal(test("[abc]"), 1);
-  equal(test("a[b]c"), 1);
-  equal(test("a[]c"), 1);
-  equal(test("["), 0);
-  equal(test("]"), 0);
-  equal(test("a["), 0);
-  equal(test("a]"), 0);
-  equal(test("[c"), 0);
-  equal(test("]c"), 0);
-  equal(test("[c"), 0);
-  equal(test("]c["), 0);
-  equal(test("[[]"), 0);
-  equal(test("[]]"), 0);
-  equal(test("[[]]"), 1);
-  equal(test("[a[b]c]"), 1);
-  equal(test("[][][]"), 1);
-  equal(test("[][[]][]"), 1);
-  equal(test("[][][]["), 0);
+  equal(matching(""), 1);
+  equal(matching("[]"), 1);
+  equal(matching("[abc]"), 1);
+  equal(matching("a[b]c"), 1);
+  equal(matching("a[]c"), 1);
+  equal(matching("["), 0);
+  equal(matching("]"), 0);
+  equal(matching("a["), 0);
+  equal(matching("a]"), 0);
+  equal(matching("[c"), 0);
+  equal(matching("]c"), 0);
+  equal(matching("[c"), 0);
+  equal(matching("]c["), 0);
+  equal(matching("[[]"), 0);
+  equal(matching("[]]"), 0);
+  equal(matching("[[]]"), 1);
+  equal(matching("[a[b]c]"), 1);
+  equal(matching("[][][]"), 1);
+  equal(matching("[][[]][]"), 1);
+  equal(matching("[][][]["), 0);
 });
 
 challenge("parse_int", (wasm) => {
