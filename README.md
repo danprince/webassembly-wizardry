@@ -1,4 +1,5 @@
-# WASM Challenges
+<p align="center"><img width="300" src="https://github.com/user-attachments/assets/0d8c7c5d-ffdc-4a2a-9c45-07d58fbd4ff1" /></p>
+<h1 align="center">WebAssembly Wizardry</h1>
 
 Tiny programming challenges designed for learning about WebAssembly by writing it by hand.
 
