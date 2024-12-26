@@ -197,6 +197,7 @@ challenge("triangular", (wasm) => {
 
 challenge("lerp", (wasm) => {
   const lerp = expectFunc(wasm.instance.exports.lerp);
+  const equal = equalClose;
 
   // Basic linear interpolation
   equal(lerp(0.0, 10.0, 0.0), 0.0);
