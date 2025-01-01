@@ -22,7 +22,7 @@ const debug = {
  * @param {(source: WebAssembly.WebAssemblyInstantiatedSource) => void} callback
  */
 export async function challenge(name, callback) {
-  const wat = readFileSync(`${name}.wat`, "utf-8");
+  const wat = readFileSync(`challenges/${name}.wat`, "utf-8");
 
   // Skip the tests that still have a SOLVE placeholder in, because they
   // probably won't actually compile.
@@ -30,7 +30,7 @@ export async function challenge(name, callback) {
 
   return test(name, async () => {
     // Compile to /tmp to keep the directory a bit cleaner
-    execSync(`wat2wasm ${name}.wat -o /tmp/${name}.wasm`);
+    execSync(`wat2wasm challenges/${name}.wat -o /tmp/${name}.wasm`);
     const buffer = readFileSync(`/tmp/${name}.wasm`);
     const imports = { debug };
     const wasm = await WebAssembly.instantiate(buffer, imports);
